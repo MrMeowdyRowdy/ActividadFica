@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?><artifacts>
+    <artifact name="StudentDataFileErrorSeq" groupId="wso2.sampleFileTransferTeamplate.sequence" version="1.0.0" type="synapse/sequence" serverRole="EnterpriseServiceBus">
+        <file>src/main/synapse-config/sequences/StudentDataFileErrorSeq.xml</file>
+    </artifact>
+    <artifact name="StudentDataFileProcessSeq" groupId="wso2.sampleFileTransferTeamplate.sequence" version="1.0.0" type="synapse/sequence" serverRole="EnterpriseServiceBus">
+        <file>src/main/synapse-config/sequences/StudentDataFileProcessSeq.xml</file>
+    </artifact>
+    <artifact name="StudentDataFileProcessInboundEP" groupId="wso2.sampleFileTransferTeamplate.inbound-endpoint" version="1.0.0" type="synapse/inbound-endpoint" serverRole="EnterpriseServiceBus">
+        <file>src/main/synapse-config/inbound-endpoints/StudentDataFileProcessInboundEP.xml</file>
+    </artifact>
+    <artifact name="Connector" groupId="wso2.sampleFileTransferTeamplate.api" version="1.0.0" type="synapse/api" serverRole="EnterpriseServiceBus">
+        <file>src/main/synapse-config/api/Connector.xml</file>
+    </artifact>
+    <artifact name="Connector_swagger" groupId="wso2.sampleFileTransferTeamplate.metadata" version="1.0.0" type="synapse/metadata" serverRole="EnterpriseServiceBus">
+        <file>src/main/resources/metadata/Connector_swagger.yaml</file>
+    </artifact>
+    <artifact name="Connector_metadata" groupId="wso2.sampleFileTransferTeamplate.metadata" version="1.0.0" type="synapse/metadata" serverRole="EnterpriseServiceBus">
+        <file>src/main/resources/metadata/Connector_metadata.yaml</file>
+    </artifact>
+    <artifact name="FILE_CONNECTION_1" groupId="wso2.sampleFileTransferTeamplate.local-entry" version="1.0.0" type="synapse/local-entry" serverRole="EnterpriseServiceBus">
+        <file>\src\main\synapse-config\local-entries\FILE_CONNECTION_1.xml</file>
+    </artifact>
+    <artifact name="FILE_CONNECTION_2" groupId="wso2.sampleFileTransferTeamplate.local-entry" version="1.0.0" type="synapse/local-entry" serverRole="EnterpriseServiceBus">
+        <file>\src\main\synapse-config\local-entries\FILE_CONNECTION_2.xml</file>
+    </artifact>
+</artifacts>

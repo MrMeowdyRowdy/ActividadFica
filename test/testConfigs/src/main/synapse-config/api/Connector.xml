@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<api context="/fileconnector" name="Connector" xmlns="http://ws.apache.org/ns/synapse">
+    <resource methods="POST" uri-template="/create">
+        <inSequence>
+            <property expression="json-eval($.inputContent)" name="source" scope="default" type="STRING"/>
+            <property expression="json-eval($.inputContent)" name="InputContent" scope="default" type="STRING"/>
+            <file.write configKey="FILE_CONNECTION_1">
+                <filePath>{$ctx:filePath}</filePath>
+                <contentOrExpression>{$ctx:inputContent}</contentOrExpression>
+                <mimeType>Automatic</mimeType>
+                <compress>false</compress>
+                <writeMode>Overwrite</writeMode>
+                <enableStreaming>false</enableStreaming>
+                <appendNewLine>false</appendNewLine>
+                <enableLock>false</enableLock>
+                <includeResultTo>Message Body</includeResultTo>
+                <updateLastModified>true</updateLastModified>
+            </file.write>
+            <respond/>
+        </inSequence>
+        <outSequence/>
+        <faultSequence/>
+    </resource>
+    <resource methods="POST" uri-template="/read">
+        <inSequence>
+            <property expression="json-eval($.source)" name="source" scope="default" type="STRING"/>
+            <file.checkExist configKey="FILE_CONNECTION_1">
+                <path>{$ctx:source}</path>
+                <includeResultTo>Message Body</includeResultTo>
+            </file.checkExist>
+            <property expression="json-eval($.checkExist)" name="response" scope="default" type="STRING"/>
+            <switch source="get-property('response')">
+                <case regex="true">
+                    <file.read configKey="FILE_CONNECTION_2">
+                        <path>{$ctx:source}</path>
+                        <readMode>Complete File</readMode>
+                        <startLineNum>0</startLineNum>
+                        <endLineNum>0</endLineNum>
+                        <lineNum>0</lineNum>
+                        <includeResultTo>Message Body</includeResultTo>
+                        <enableStreaming>false</enableStreaming>
+                        <enableLock>false</enableLock>
+                    </file.read>
+                    <respond/>
+                </case>
+                <default>
+                    <log/>
+                    <drop/>
+                </default>
+            </switch>
+        </inSequence>
+        <outSequence/>
+        <faultSequence/>
+    </resource>
+</api>

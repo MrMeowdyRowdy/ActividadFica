@@ -1,0 +1,38 @@
+openapi: 3.0.1
+info:
+  title: Connector
+  description: API Definition of Connector
+  version: 1.0.0
+servers:
+- url: http://localhost:8290/fileconnector
+paths:
+  /create:
+    post:
+      requestBody:
+        description: Sample Payload
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                payload:
+                  type: object
+        required: false
+      responses:
+        default:
+          description: Default response
+  /read:
+    post:
+      requestBody:
+        description: Sample Payload
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                payload:
+                  type: object
+        required: false
+      responses:
+        default:
+          description: Default response
